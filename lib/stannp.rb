@@ -15,5 +15,4 @@ module Stannp
   # objects
   autoload :User, 'stannp/objects/user'
   autoload :Recipient, 'stannp/objects/recipient'
-  autoload :Account, 'stannp/objects/account'
 end
