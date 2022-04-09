@@ -15,7 +15,7 @@ RSpec.describe Stannp::UserResource do
 
     context 'with a successful request' do
       let(:response_code) { 200 }
-      let(:body) { JSON.parse({ data: { name: 'Foo' } }.to_json) }
+      let(:body) { json_response({ data: { name: 'Foo' } }) }
 
       it 'returns the user' do
         user = client.user.get
