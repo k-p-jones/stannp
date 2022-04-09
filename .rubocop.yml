@@ -2,6 +2,9 @@ AllCops:
   TargetRubyVersion: 2.6
   Exclude:
     - 'spec/**/*'
+    - '*.gemspec'
+    - 'vendor/**/*'
+    - 'vendor/**/.*'
 
 Style/StringLiterals:
   Enabled: true
