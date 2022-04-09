@@ -16,7 +16,7 @@ module Stannp
       when Hash
         Object.new(value)
       when Array
-        value.map { |item| Object.new(item) }
+        value.map { |item| item.is_a?(Hash) ? Object.new(item) : item }
       else
         value
       end
