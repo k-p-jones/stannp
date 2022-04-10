@@ -119,4 +119,107 @@ RSpec.describe Stannp::RecipientsResource do
       end
     end
   end
+
+  describe '#create' do
+    context 'with a successful request' do
+      let(:response_code) { 200 }
+      let(:body) do
+        json_response({ data: { id: 1, valid: true } })
+      end
+
+      before(:each) do
+        stubs.post("https://dash.stannp.com/api/v1/recipients/new?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+      end
+
+      it 'returns a recipient' do
+        recipient = client.recipients.create(attributes: { firstname: 'Bob' })
+        expect(recipient.class).to eql(Stannp::Recipient)
+        expect(recipient.id).to eql(1)
+      end
+    end
+
+    context 'with a failing request' do
+      context 'with a failing request' do
+        let(:response_code) { 500 }
+        let(:body) { json_response({ error: 'Boom!' }) }
+    
+        before(:each) do
+          stubs.post("https://dash.stannp.com/api/v1/recipients/new?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+        end
+    
+        it 'returns an error' do
+          expect { client.recipients.create(attributes: { firstname: 'Foo' }) }.to raise_error(Stannp::Error, '500: Boom!')
+        end
+      end
+    end
+  end
+
+  describe '#delete' do
+    context 'with a successful request' do
+      let(:response_code) { 200 }
+      let(:body) { json_response({ success: true }) }
+
+      before(:each) do
+        stubs.post("https://dash.stannp.com/api/v1/recipients/delete?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+      end
+
+      it 'returns a recipient' do
+        expect(client.recipients.delete(id: 1)).to eql(true)
+      end
+    end
+
+    context 'with a failing request' do
+      let(:response_code) { 500 }
+      let(:body) { json_response({ error: 'Boom!' }) }
+
+      before(:each) do
+        stubs.post("https://dash.stannp.com/api/v1/recipients/delete?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+      end
+
+      it 'returns an error' do
+        expect { client.recipients.delete(id: 1) }.to raise_error(Stannp::Error, '500: Boom!')
+      end
+    end
+  end
+
+  describe '#delete_all' do
+    context 'with a successful request' do
+      let(:response_code) { 200 }
+      let(:body) { json_response({ success: true }) }
+
+      before(:each) do
+        stubs.post("https://dash.stannp.com/api/v1/recipients/deleteAll?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+      end
+
+      it 'returns true' do
+        expect(client.recipients.delete_all).to eql(true)
+      end
+    end
+
+    context 'with a failing request' do
+      let(:response_code) { 500 }
+      let(:body) { json_response({ error: 'Boom!' }) }
+
+      before(:each) do
+        stubs.post("https://dash.stannp.com/api/v1/recipients/deleteAll?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+      end
+
+      it 'returns an error' do
+        expect { client.recipients.delete_all }.to raise_error(Stannp::Error, '500: Boom!')
+      end
+    end
+
+    context 'when handling the nothing-to-delete error' do
+      let(:response_code) { 400 }
+      let(:body) { json_response({ error: 'Nothing to delete' }) }
+
+      before(:each) do
+        stubs.post("https://dash.stannp.com/api/v1/recipients/deleteAll?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+      end
+
+      it 'returns true' do
+        expect(client.recipients.delete_all).to eql(true)
+      end
+    end
+  end
 end
