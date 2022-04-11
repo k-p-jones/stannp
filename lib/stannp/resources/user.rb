@@ -3,7 +3,7 @@
 module Stannp
   class UserResource < Resource
     def get
-      url = "https://dash.stannp.com/api/v1/users/me?api_key=#{client.api_key}"
+      url = url_for(path: 'users/me')
       User.new(get_request(url).body['data'])
     end
   end

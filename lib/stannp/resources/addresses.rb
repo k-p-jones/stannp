@@ -3,7 +3,7 @@
 module Stannp
   class AddressesResource < Resource
     def validate(attributes:)
-      url = "https://dash.stannp.com/api/v1/addresses/validate?api_key=#{client.api_key}"
+      url = url_for(path: 'addresses/validate')
       post_request(url, body: attributes).body['data']['is_valid']
     end
   end

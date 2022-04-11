@@ -14,6 +14,10 @@ module Stannp
       handle_response client.connection.post(url, body, headers)
     end
 
+    def url_for(path:)
+      "#{path}?api_key=#{client.api_key}"
+    end
+
     private
 
     attr_reader :client
