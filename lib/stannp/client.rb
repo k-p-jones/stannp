@@ -25,6 +25,10 @@ module Stannp
       RecipientsResource.new(client: self)
     end
 
+    def addresses
+      AddressesResource.new(client: self)
+    end
+
     def connection
       @connection ||= Faraday.new do |conn|
         conn.request :json
