@@ -4,3 +4,7 @@
 
 ## [0.2.0] - 2022-04-11
 - Add support for the complete Account API
+
+## [0.3.0] - 2022-04-11
+- Add support for recipient upload
+- Add the Addresses API
