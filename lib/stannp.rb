@@ -12,6 +12,7 @@ module Stannp
   autoload :AccountResource, 'stannp/resources/account'
   autoload :UserResource, 'stannp/resources/user'
   autoload :RecipientsResource, 'stannp/resources/recipients'
+  autoload :AddressesResource, 'stannp/resources/addresses'
   # objects
   autoload :User, 'stannp/objects/user'
   autoload :Recipient, 'stannp/objects/recipient'
