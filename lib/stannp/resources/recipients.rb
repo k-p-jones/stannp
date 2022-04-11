@@ -35,5 +35,11 @@ module Stannp
 
       raise e
     end
+
+    def import(group_id:, file:, options: {})
+      url = "https://dash.stannp.com/api/v1/recipients/import?api_key=#{client.api_key}"
+      body = { group_id: group_id, file: file }.merge(options)
+      post_request(url, body: body).body['success']
+    end
   end
 end

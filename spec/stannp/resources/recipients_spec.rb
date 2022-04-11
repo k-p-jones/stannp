@@ -119,6 +119,19 @@ RSpec.describe Stannp::RecipientsResource do
     end
   end
 
+  describe '#import' do
+    let(:response_code) { 200 }
+    let(:body) { json_response({ success: true }) }
+
+    before(:each) do
+      stubs.post("https://dash.stannp.com/api/v1/recipients/import?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
+    end
+
+    it 'returns true' do
+      expect(client.recipients.import(group_id: 1, file: 'string')).to eql(true)
+    end
+  end
+
   describe '#delete_all' do
     context 'with a successful request' do
       let(:response_code) { 200 }
