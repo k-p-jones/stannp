@@ -15,4 +15,5 @@ module Stannp
   # objects
   autoload :User, 'stannp/objects/user'
   autoload :Recipient, 'stannp/objects/recipient'
+  autoload :Receipt, 'stannp/objects/receipt'
 end
