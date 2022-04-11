@@ -10,7 +10,7 @@ RSpec.describe Stannp::AccountResource do
 
   describe '#balance' do
     before(:each) do
-      stubs.get("https://dash.stannp.com/api/v1/accounts/balance?api_key=#{client.api_key}}") { |_| [response_code, {}, body] }
+      stubs.get("https://dash.stannp.com/api/v1/accounts/balance?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
     end
 
     let(:response_code) { 200 }
@@ -23,7 +23,7 @@ RSpec.describe Stannp::AccountResource do
 
   describe '#top_up' do
     before(:each) do
-      stubs.post("https://dash.stannp.com/api/v1/accounts/topup?api_key=#{client.api_key}}") { |_| [response_code, {}, body] }
+      stubs.post("https://dash.stannp.com/api/v1/accounts/topup?api_key=#{client.api_key}") { |_| [response_code, {}, body] }
     end
 
     let(:response_code) { 200 }
