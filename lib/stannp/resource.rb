@@ -14,14 +14,6 @@ module Stannp
       handle_response client.connection.post(url, body, headers)
     end
 
-    def patch_request(url, body:, headers: {})
-      handle_response client.connection.patch(url, body, headers)
-    end
-
-    def put_request(url, body:, headers: {})
-      handle_response client.connection.put(url, body, headers)
-    end
-
     private
 
     attr_reader :client
