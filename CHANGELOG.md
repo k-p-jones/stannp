@@ -11,3 +11,6 @@
 
 ## [0.4.0] - 2022-04-16
 - Add support for the Postcards API
+
+## [0.5.0] - 2022-04-16
+- Add support for the Letters API
