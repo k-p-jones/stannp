@@ -14,9 +14,12 @@ module Stannp
   autoload :RecipientsResource, 'stannp/resources/recipients'
   autoload :AddressesResource, 'stannp/resources/addresses'
   autoload :PostcardsResource, 'stannp/resources/postcards'
+  autoload :LettersResource, 'stannp/resources/letters'
   # objects
   autoload :User, 'stannp/objects/user'
   autoload :Recipient, 'stannp/objects/recipient'
   autoload :Receipt, 'stannp/objects/receipt'
   autoload :Postcard, 'stannp/objects/postcard'
+  autoload :Letter, 'stannp/objects/letter'
+  autoload :Batch, 'stannp/objects/batch'
 end

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Stannp
-  VERSION = '0.5.0'
+  class Batch < Object; end
 end
