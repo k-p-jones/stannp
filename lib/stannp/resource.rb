@@ -14,8 +14,14 @@ module Stannp
       handle_response client.connection.post(url, body, headers)
     end
 
-    def url_for(path:)
-      "#{path}?api_key=#{client.api_key}"
+    def url_for(path:, params: nil)
+      url = "#{path}?api_key=#{client.api_key}"
+      params&.each do |k, v|
+        next unless v
+
+        url += "&#{k}=#{v}"
+      end
+      url
     end
 
     private

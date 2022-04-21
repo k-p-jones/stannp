@@ -38,6 +38,10 @@ module Stannp
       LettersResource.new(client: self)
     end
 
+    def groups
+      GroupsResource.new(client: self)
+    end
+
     def connection
       @connection ||= Faraday.new do |conn|
         conn.url_prefix = BASE_URL

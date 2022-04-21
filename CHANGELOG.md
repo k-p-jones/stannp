@@ -14,3 +14,6 @@
 
 ## [0.5.0] - 2022-04-16
 - Add support for the Letters API
+
+## [0.6.0] - 2022-04-21
+- Add support for the Groups API
