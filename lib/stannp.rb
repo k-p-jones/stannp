@@ -16,6 +16,7 @@ module Stannp
   autoload :PostcardsResource, 'stannp/resources/postcards'
   autoload :LettersResource, 'stannp/resources/letters'
   autoload :GroupsResource, 'stannp/resources/groups'
+  autoload :CampaignsResource, 'stannp/resources/campaigns'
   # objects
   autoload :User, 'stannp/objects/user'
   autoload :Recipient, 'stannp/objects/recipient'
@@ -24,4 +25,6 @@ module Stannp
   autoload :Letter, 'stannp/objects/letter'
   autoload :Batch, 'stannp/objects/batch'
   autoload :Group, 'stannp/objects/group'
+  autoload :Campaign, 'stannp/objects/campaign'
+  autoload :CampaignCost, 'stannp/objects/campaign_cost'
 end

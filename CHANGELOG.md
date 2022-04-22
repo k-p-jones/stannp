@@ -17,3 +17,6 @@
 
 ## [0.6.0] - 2022-04-21
 - Add support for the Groups API
+
+## [0.7.0] - 2022-04-22
+- Add support for the Campaigns API
