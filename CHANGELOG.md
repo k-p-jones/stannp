@@ -20,3 +20,6 @@
 
 ## [0.7.0] - 2022-04-22
 - Add support for the Campaigns API
+
+## [0.8.0] - 2022-05-04
+- Add support for the Events API

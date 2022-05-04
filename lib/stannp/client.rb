@@ -46,6 +46,10 @@ module Stannp
       CampaignsResource.new(client: self)
     end
 
+    def events
+      EventsResource.new(client: self)
+    end
+
     def connection
       @connection ||= Faraday.new do |conn|
         conn.url_prefix = BASE_URL
