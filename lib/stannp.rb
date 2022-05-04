@@ -17,6 +17,7 @@ module Stannp
   autoload :LettersResource, 'stannp/resources/letters'
   autoload :GroupsResource, 'stannp/resources/groups'
   autoload :CampaignsResource, 'stannp/resources/campaigns'
+  autoload :EventsResource, 'stannp/resources/events'
   # objects
   autoload :User, 'stannp/objects/user'
   autoload :Recipient, 'stannp/objects/recipient'
